@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema, model } = require("mongoose");
+
 
 const reviewSchema = new Schema({
-  __id: { type: String, required: true },
+  __id: { type: String },
   rating: { type: Number, required: true },
   description: { type: String, required: true },
   date: { type: Date, required: true },

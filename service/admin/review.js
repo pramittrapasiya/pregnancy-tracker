@@ -1,0 +1,18 @@
+let reviewModel = require('../../model/review');
+
+module.exports = {
+    getReview : (data) =>{
+        return new Promise(async(res,rej)=>{
+            try {
+                
+                let reviewData = await reviewModel.find({});
+                // console.log(blogData);
+                res({ data : reviewData});
+
+            } catch (error) {
+                rej({status : 404, message : error})
+                console.log('err ...',error);
+            }
+        })
+    }
+}
