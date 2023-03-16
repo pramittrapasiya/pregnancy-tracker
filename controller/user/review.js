@@ -11,7 +11,8 @@ exports.add = async (req,res)=>{
         }
 
 
-    } catch (error) {
-        console.log(error);
+    } catch (err) {
+        // console.log(error);
+        return response(err.message, {}, err.status, res);
     }
 }

@@ -1,7 +1,10 @@
 const { Schema, model } = require("mongoose");
 
 const appointmentSchema = new Schema({
-  __id: { type: String },
+  user_id: {
+    type: Schema.Types.ObjectId,
+    ref: "registration"
+  },
   name: { type: String, required: true },
   profession: { type: String, required: true },
   date: { type: Date, required: true },

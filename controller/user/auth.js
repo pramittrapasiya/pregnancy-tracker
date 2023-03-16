@@ -1,5 +1,4 @@
 const authService = require("../../service/user/auth")
-const loginService = require("../../service/user/login")
 const {response} = require("../../middleware/response");
 
 exports.register = async(req, res)=>{
@@ -11,8 +10,9 @@ exports.register = async(req, res)=>{
             return response("Something went wrong!!", {}, 500, res);
         }
     } catch(err){
-        console.log("err...",err);
+        // console.log("err...",err);
         // return response(err.message,res)
+        return response(err.message, {}, err.status, res);
     }
 }
 
@@ -26,8 +26,9 @@ exports.login = async(req,res) =>{
             return response("Something went wrong!!", {}, 500, res);
         }
     } catch(err){
-        console.log("err...",err);
+        // console.log("err...",err);
         // return response(err.message,res)
+        return response(err.message, {}, err.status, res);
     }
 }
 

@@ -5,6 +5,6 @@ const authRoute = Router();
 authRoute.get("/", (req , res)=>{
     res.send({message : "Auth Admin File Is Working..."})
 });
-authRoute.get("/", authController);
+authRoute.post("/login", authController.login);
 
 module.exports = authRoute

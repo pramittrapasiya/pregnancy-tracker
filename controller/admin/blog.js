@@ -17,7 +17,8 @@ exports.blog = async(req,res)=>{
         } else {
             return response("Something went wrong!!", {}, 500, res);
         }
-    } catch (error) {
-        console.log("Controller - Admin - Blog - Error : ",error);
+    } catch (err) {
+        // console.log("Controller - Admin - Blog - Error : ",error);
+        return response(err.message, {}, err.status, res);
     }
 }

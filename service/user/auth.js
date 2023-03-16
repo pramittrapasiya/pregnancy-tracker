@@ -94,12 +94,13 @@ module.exports = {
                         if(is_verify==1){
                         const token = jwt.sign(
                             {
+                                user_id: dbData._id,
                                 email: data.email,
                                 password: data.password
                             },
                             process.env.SECRET_KEY);
                         console.log(token);
-                        res({ status: 200, message: "Login successfully..." })
+                        res({ status: 200, message: "Login successfully...", data:token })
                         }
                         else{
                         rej({ status: 404, message: "Verify Your Email...." })
@@ -110,7 +111,7 @@ module.exports = {
                     // console.log("Email---",dbData.email);
                     // console.log("Password---",data.password);
                 } else {
-                    rej({ status: 404, message: "Email not found Login Error..." })
+                    rej({ status: 404, message: "Email Is Not found ..." })
                 }
             } catch (error) {
                 rej({ status: 404, message: "Try..Catch.. Login Error..." })
