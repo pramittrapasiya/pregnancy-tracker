@@ -7,7 +7,7 @@ const reviewAdmin=require('../admin/review')
 
 
 adminRouter.get("/", (req , res)=>{
-    res.send({message : "Auth Admin Main File Is Working..."})
+    res.send({message : "Route Admin Main File Is Working..."})
 });
 
 adminRouter.use('/auth',authAdmin)

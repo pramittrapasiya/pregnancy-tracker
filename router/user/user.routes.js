@@ -9,7 +9,7 @@ const weightRoute = require('../user/weight')
 const reviewRoute = require('../user/review')
 
 userRoute.get("/", (req , res)=>{
-    res.send({message : "Auth User Main File Is Working..."})
+    res.send({message : "Route User Main File Is Working..."})
 });
 userRoute.use('/auth',authRoute)
 userRoute.use('/blog',verifyUser,blogRoute)
