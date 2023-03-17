@@ -95,8 +95,7 @@ module.exports = {
                         const token = jwt.sign(
                             {
                                 user_id: dbData._id,
-                                email: data.email,
-                                password: data.password
+                                email: data.email
                             },
                             process.env.SECRET_KEY);
                         console.log(token);

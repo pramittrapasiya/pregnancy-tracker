@@ -1,5 +1,6 @@
 const express = require("express");
 const userRoute = express.Router()
+const {verifyUser} = require('../../middleware/verifyToken')
 const authRoute = require('../user/auth')
 const blogRoute = require('../user/blog')
 const todoRoute = require('../user/todo')
@@ -11,11 +12,11 @@ userRoute.get("/", (req , res)=>{
     res.send({message : "Auth User Main File Is Working..."})
 });
 userRoute.use('/auth',authRoute)
-userRoute.use('/blog',blogRoute)
-userRoute.use('/todo',todoRoute)
-userRoute.use('/appointment',appointmentRoute)
-userRoute.use('/weight',weightRoute)
-userRoute.use('/review',reviewRoute)
+userRoute.use('/blog',verifyUser,blogRoute)
+userRoute.use('/todo',verifyUser,todoRoute)
+userRoute.use('/appointment',verifyUser,appointmentRoute)
+userRoute.use('/weight',verifyUser,weightRoute)
+userRoute.use('/review',verifyUser,reviewRoute)
 
 
 module.exports = userRoute; 
