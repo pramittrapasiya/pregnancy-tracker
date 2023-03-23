@@ -5,8 +5,9 @@ const blogSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   image: {
-    data: Buffer,
-    contentType: String
+    // data: Buffer,
+    // contentType: String
+    type : String
 },
   date: { type: Date, required: true }, 
 }, {

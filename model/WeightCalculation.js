@@ -22,3 +22,11 @@ const weightSchema = new Schema({
 });
 
 module.exports = model('weight', weightSchema);
+
+
+
+// weight : [
+//   {
+//   monthNumber : Number,
+//   weight : Number}
+// ] 
