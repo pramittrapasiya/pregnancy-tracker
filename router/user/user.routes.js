@@ -20,5 +20,13 @@ userRoute.use('/weight',verifyUser,weightRoute)
 userRoute.use('/review',verifyUser,reviewRoute)
 userRoute.use('/timeline',verifyUser,timelineRoute)
 
+//      Without Token
+// userRoute.use('/blog',blogRoute)
+// userRoute.use('/todo',todoRoute)
+// userRoute.use('/appointment',appointmentRoute)
+// userRoute.use('/weight',weightRoute)
+// userRoute.use('/review',reviewRoute)
+// userRoute.use('/timeline',timelineRoute)
+
 
 module.exports = userRoute; 

@@ -11,7 +11,7 @@ adminRouter.get("/", (req , res)=>{
     res.send({message : "Route Admin Main File Is Working..."})
 });
 
-adminRouter.use('/auth',authAdmin)
+adminRouter.use('/auth',authAdmin)  
 adminRouter.use('/blog',blogAdmin)
 adminRouter.use('/review',reviewAdmin)
 adminRouter.use('/timeline',timelineAdmin)

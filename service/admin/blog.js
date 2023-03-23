@@ -3,16 +3,17 @@ const { upload } = require('./../../middleware/upload')
 
 
 module.exports = {
-    addblog : (data,file) =>{
+    // addblog : (data,file) =>{
+    addblog : (data) =>{
         return new Promise(async(res,rej)=>{
             // console.log(data.file.filename);
-            console.log('---->>>>>>',file.path);
+            // console.log('---->>>>>>',file.path);
             try {
                 let blogData = await blogModel.create({
                     category : data.category,
                     title : data.title,
                     description : data.description,
-                    image : file.path,
+                    // image : file.path,
                     date : data.date
                 });
                 // console.log(blogData);
