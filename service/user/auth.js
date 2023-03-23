@@ -92,14 +92,17 @@ module.exports = {
                         const is_verify = dbData.is_verify;
                         // console.log(is_verify);
                         if(is_verify==1){
+                            const user_id = dbData._id;
+                            const email = data.email;
                         const token = jwt.sign(
                             {
-                                user_id: dbData._id,
-                                email: data.email
+                                user_id,
+                                email
                             },
                             process.env.SECRET_KEY);
                         console.log(token);
-                        res({ status: 200, message: "Login successfully...", data:token })
+                        const frontEnd = {"token":token,"user_id":user_id}
+                        res({ status: 200, message: "Login successfully...", data:frontEnd })
                         }
                         else{
                         rej({ status: 404, message: "Verify Your Email...." })
@@ -107,8 +110,7 @@ module.exports = {
                     } else {
                         rej({ status: 404, message: "Password is not match..." })
                     }
-                    // console.log("Email---",dbData.email);
-                    // console.log("Password---",data.password);
+
                 } else {
                     rej({ status: 404, message: "Email Is Not found ..." })
                 }

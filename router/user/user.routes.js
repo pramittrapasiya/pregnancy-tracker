@@ -1,6 +1,7 @@
 const express = require("express");
-const userRoute = express.Router()
 const {verifyUser} = require('../../middleware/verifyToken')
+const userRoute = express.Router()
+
 const authRoute = require('../user/auth')
 const blogRoute = require('../user/blog')
 const todoRoute = require('../user/todo')
@@ -12,6 +13,8 @@ const timelineRoute = require('../user/timeline')
 userRoute.get("/", (req , res)=>{
     res.send({message : "Route User Main File Is Working..."})
 });
+
+//      With Token
 userRoute.use('/auth',authRoute)
 userRoute.use('/blog',verifyUser,blogRoute)
 userRoute.use('/todo',verifyUser,todoRoute)
@@ -27,6 +30,5 @@ userRoute.use('/timeline',verifyUser,timelineRoute)
 // userRoute.use('/weight',weightRoute)
 // userRoute.use('/review',reviewRoute)
 // userRoute.use('/timeline',timelineRoute)
-
 
 module.exports = userRoute; 
