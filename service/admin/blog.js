@@ -14,16 +14,17 @@ module.exports = {
            
             // console.log('---->>>>>>',data);
             try {
-                // console.log('image---',file);
-                cloudinary.uploader.upload(file.path,(err,result)=>{
+            //  console.log('image---',file);
+                cloudinary.uploader.upload(file.path,async(err,result)=>{
                     // console.log('Result--->',result);
-                    let blogData = blogModel.create({
+                    let blogData = await blogModel.create({
                     category : data.category,
                     title : data.title,
                     description : data.description,
                     image : result.url,
                     date : data.date
                 });
+                console.log(blogData);
                 if (blogData) {
                     res({ status: 200, data: "Data Added Successfully!!" });
                 } else {

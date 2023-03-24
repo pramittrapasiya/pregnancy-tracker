@@ -10,7 +10,7 @@ const { response } = require("../../middleware/response");
 const ngrok = require('ngrok');
 
 const NGROK_link = "http://localhost:3000"
-// const NGROK_link = "https://8b18-49-43-32-156.in.ngrok.io"
+// const NGROK_link = "https://8e53-2405-201-2029-a83c-7454-e834-5eb5-b804.in.ngrok.io"
 
 module.exports = {
     register: (data) => {
