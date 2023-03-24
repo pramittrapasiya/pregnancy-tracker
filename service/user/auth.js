@@ -99,7 +99,8 @@ module.exports = {
                                 user_id,
                                 email
                             },
-                            process.env.SECRET_KEY);
+                            process.env.SECRET_KEY,
+                            { expiresIn: process.env.USER_ACCESS_TIME });
                         console.log(token);
                         const frontEnd = {"token":token,"user_id":user_id}
                         res({ status: 200, message: "Login successfully...", data:frontEnd })

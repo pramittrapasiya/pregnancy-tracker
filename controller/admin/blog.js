@@ -9,9 +9,9 @@ blogController.get('/', (req, res) => {
 
 exports.blog = async(req,res)=>{
     try {
-        // let resp = await blogService.addblog(req.body,req.file);
-        let resp = await blogService.addblog(req.body);
-    // console.log('-->',req.file);
+        // console.log('----Controller-->',req.body);
+        let resp = await blogService.addblog(req.body,req.file);
+        // let resp = await blogService.addblog(req.body);
         if (resp) {
             return response("SUCCESS..!!", resp.data, 200, res);
         } else {

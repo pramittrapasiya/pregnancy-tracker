@@ -10,9 +10,7 @@ blogRoute.get('/', (req, res) => {
 })
 
 // blogRoute.post("/addBlog",blogController.blog);
-blogRoute.post("/addBlog",
-    upload.single("image"),
-    blogController.blog);
+blogRoute.post("/addBlog",upload.single("image"),blogController.blog);
 
 
 module.exports = blogRoute;

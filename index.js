@@ -6,6 +6,7 @@ const path = require('path');
 const v1 = require('./router/v1')
 const verify = require('./middleware/verifyMail')
 const ngrok = require('ngrok');
+const fileupload = require('express-fileupload')
 require("dotenv").config({ path: path.join(__dirname, "./config/.env") });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +20,9 @@ mongoose.set('strictQuery', false);
 
 app.use("/v1", v1);
 app.use("/verify", verify);
+app.use(fileupload({
+  useTempFiles : true
+}))
 
 mongoose.connect(process.env.MONGODB_URL, async (err, result) => {
     if (err) {
