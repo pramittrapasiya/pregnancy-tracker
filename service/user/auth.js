@@ -120,6 +120,29 @@ module.exports = {
             }
         })
 
+    },
+    
+    updateProfile : (_id,data) =>{
+        return new Promise(async(res,rej)=>{
+            try {
+                // console.log(`id : ${_id}`);
+                // console.log(data);
+                const user_id = _id;
+                const getData = await registerModel.findByIdAndUpdate({_id:user_id},
+                    {$set : {
+                    name : data.name,
+                    email : data.email
+                }})
+                if(getData){
+                    res({ status: 200, message: "Profile Updated successfully..." })
+                }else{
+                    rej({ status: 404, message: "Profile is Not Updated. ..." })
+                }
+
+            } catch (error) {
+                rej({ status: 404, message: `Try..Catch.. Profile Error...,${error}` })
+            }
+        })
     }
 
 }

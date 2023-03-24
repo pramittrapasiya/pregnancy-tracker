@@ -9,6 +9,7 @@ authRoute.get('/', (req, res) => {
 
 authRoute.post("/register", userEmailCheck,authController.register)
 authRoute.post("/login", authController.login)
+authRoute.patch("/profile/:_id", authController.profile)
 
 
 module.exports = authRoute;
