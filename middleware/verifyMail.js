@@ -12,7 +12,7 @@ verifyMail.get('/:id', async(req, res)=>{
           const verify = await registerModel.updateOne({ _id: new_id }, { $set: { is_verify: 1 } });
           console.log(verify);
           if (verify) {
-            res.send("Email Verify successfully");
+            res.send("Email Verify successfully, Now Go To Login Page For Login...");
           } else {
             res.send("Email verification failed, possibly the link is invalid or expired");
           }

@@ -19,7 +19,7 @@ exports.add = async (req,res)=>{
 
 exports.getData = async(req,res)=>{
     try {
-        let resp = await weightService.getData(req.body);
+        let resp = await weightService.getData(req.params,req.body);
         if (resp) {
             return response("SUCCESS..!!", resp.data, 200, res);
         } else {

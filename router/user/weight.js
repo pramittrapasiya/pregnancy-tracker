@@ -7,6 +7,6 @@ weightRoute.get('/',(req,res)=>{
 })
 
 weightRoute.post("/addWeight",weightController.add);
-weightRoute.get("/getWeight",weightController.getData);
+weightRoute.get("/getWeight/:id",weightController.getData);
 
 module.exports = weightRoute;

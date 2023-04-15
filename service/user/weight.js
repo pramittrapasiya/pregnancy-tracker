@@ -15,11 +15,11 @@ module.exports = {
             }
         })
     },
-    getData : (data) =>{
+    getData : (id,data) =>{
         return new Promise(async (res,rej)=>{
             try {
                 
-                let weightData = await weightModel.find({});
+                let weightData = await weightModel.find({user_id : id.id});
                 // console.log(blogData);
                 res({ data : weightData});
 

@@ -7,6 +7,6 @@ appointmentRoute.get('/',(req,res)=>{
 })
 
 appointmentRoute.post("/addAppointment",appointmentController.add);
-appointmentRoute.get("/getAppointment",appointmentController.getData);
+appointmentRoute.get("/getAppointment/:id",appointmentController.getData);
 
 module.exports = appointmentRoute;

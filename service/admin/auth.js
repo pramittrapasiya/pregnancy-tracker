@@ -20,5 +20,19 @@ module.exports = {
                 
             }
         })
+    },
+    getDetails : (data) =>{
+        return new Promise(async(res,rej)=>{
+            try {
+                
+                let registerData = await registerModel.find({});
+                // console.log(blogData);
+                res({ data : registerData});
+
+            } catch (error) {
+                rej({status : 404, message : error})
+                console.log('err ...',error);
+            }
+        })
     }
 }
