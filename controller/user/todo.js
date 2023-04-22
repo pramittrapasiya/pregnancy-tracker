@@ -33,3 +33,18 @@ exports.update = async(req,res)=>{
     
     }
 }
+exports.getTodo = async(req,res)=>{
+
+    try {
+        
+        let resp = await todoService.getTodo(req.params.id);
+        if (resp) {
+            return response("data updated successfully..!!", resp.data, 200, res);
+        } else {
+            return response("Something went wrong!!", {}, 500, res);
+        }
+    } catch (err) {
+        return response(err.message, {}, err.status, res);
+    
+    }
+}

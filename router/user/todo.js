@@ -8,5 +8,6 @@ todoRoute.get('/',(req,res)=>{
 
 todoRoute.post("/createTodo",todoController.todo);
 todoRoute.put("/updateTodo/:id",todoController.update);
+todoRoute.get("/getTodo/:id",todoController.getTodo);
 
 module.exports = todoRoute;

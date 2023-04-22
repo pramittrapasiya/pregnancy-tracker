@@ -16,7 +16,7 @@ module.exports = {
             }
         })
     },
-    getData: (id, data) => {
+    getData: (id) => {
         return new Promise(async (res, rej) => {
             try {
                 // const {id} = req.params;

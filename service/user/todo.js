@@ -2,8 +2,8 @@ const todoModel = require('../../model/todolist');
 
 
 module.exports = {
-    todo : (data)=>{
-        return new Promise(async (res,rej)=>{
+    todo: (data) => {
+        return new Promise(async (res, rej) => {
             try {
                 // console.log("data",data);
                 let savedata = await todoModel.create(data)
@@ -12,28 +12,28 @@ module.exports = {
                     res({ status: 200, data: "Data Added Successfully!!" });
                 } else {
                     rej({ status: 404, message: "something went wrong!!" });
-                }  
+                }
             } catch (err) {
                 console.log("todo Service Error...", err);
             }
         })
     },
-    update : (id,data)=>{
-        return new Promise (async(res,rej)=>{
+    update: (id, data) => {
+        return new Promise(async (res, rej) => {
             try {
                 // console.log("Id--->",id);
-                todoModel.findOneAndUpdate({_id:id},{
-                    $set:{
-                        title : data.title,
-                        date : data.date,
-                        status : data.status
+                todoModel.findOneAndUpdate({ _id: id }, {
+                    $set: {
+                        title: data.title,
+                        date: data.date,
+                        status: data.status
                     }
-                }).then(result=>{
+                }).then(result => {
                     // console.log(result);
                     res({ status: 200, data: result });
-                }).catch(err=>{
+                }).catch(err => {
                     console.log(err);
-                    res({ status: 500, message : err });
+                    res({ status: 500, message: err });
                 })
 
             } catch (err) {
@@ -41,5 +41,19 @@ module.exports = {
                 rej({ status: 500, message: "something went wrong!!" });
             }
         })
-    }
+    },
+    getTodo: (id) => {
+        return new Promise(async (res, rej) => {
+            try {
+                let TodoData = await todoModel.find({user_id : id})
+                // console.log(appointmentData);
+                res({ data: TodoData });
+                // console.log(id);
+
+            } catch (err) {
+                console.log("err", err);
+                rej({ status: 500, message: "something went wrong!!" });
+            }
+        })
+    }   
 }
