@@ -7,7 +7,9 @@ const bcryptjs = require("bcryptjs");
 
 function verifyUser(req, res, next) {
    try {
+
       let token = req.headers["authorization"];
+      token = token.split(" ")[1];
       if (!token) {
          response("Token is Missing..!!", {}, 403, res);
       } else {

@@ -15,21 +15,21 @@ userRoute.get("/", (req , res)=>{
 });
 
 //      With Token
-// userRoute.use('/auth',authRoute)
-// userRoute.use('/blog',verifyUser,blogRoute)
-// userRoute.use('/todo',verifyUser,todoRoute)
-// userRoute.use('/appointment',verifyUser,appointmentRoute)
-// userRoute.use('/weight',verifyUser,weightRoute)
-// userRoute.use('/review',verifyUser,reviewRoute)
-// userRoute.use('/timeline',verifyUser,timelineRoute)
+userRoute.use('/auth',authRoute)
+userRoute.use('/blog',verifyUser,blogRoute)
+userRoute.use('/todo',verifyUser,todoRoute)
+userRoute.use('/appointment',verifyUser,appointmentRoute)
+userRoute.use('/weight',verifyUser,weightRoute)
+userRoute.use('/review',verifyUser,reviewRoute)
+userRoute.use('/timeline',verifyUser,timelineRoute)
 
     //  Without Token
-userRoute.use('/auth',authRoute)
-userRoute.use('/blog',blogRoute)
-userRoute.use('/todo',todoRoute)
-userRoute.use('/appointment',appointmentRoute)
-userRoute.use('/weight',weightRoute)
-userRoute.use('/review',reviewRoute)
-userRoute.use('/timeline',timelineRoute)
+// userRoute.use('/auth',authRoute)
+// userRoute.use('/blog',blogRoute)
+// userRoute.use('/todo',todoRoute)
+// userRoute.use('/appointment',appointmentRoute)
+// userRoute.use('/weight',weightRoute)
+// userRoute.use('/review',reviewRoute)
+// userRoute.use('/timeline',timelineRoute)
 
 module.exports = userRoute; 
