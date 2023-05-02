@@ -6,8 +6,11 @@ module.exports = {
             try {
                 
                 let reviewData = await reviewModel.find({});
-                // console.log(blogData);
-                res({ data : reviewData});
+                // console.log("Review Length : ",reviewData.length);
+                res({ data : {
+                     totalData : reviewData.length,
+                      result : reviewData
+                    }});
 
             } catch (error) {
                 rej({status : 404, message : error})

@@ -15,5 +15,20 @@ module.exports = {
                 console.log('err ...',error);
             }
         })
+    },
+    blogById : (id) =>{
+        return new Promise(async(res,rej)=>{
+            try {
+                
+                let blogData = await blogModel.findById({_id:id});
+                // console.log(blogData);
+                
+                res({ data : blogData});
+
+            } catch (error) {
+                rej({status : 404, message : error})
+                console.log('err ...',error);
+            }
+        })
     }
 }

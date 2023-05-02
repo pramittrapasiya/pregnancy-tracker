@@ -1,6 +1,6 @@
 const timelineService = require('../../service/user/timeline')
 const {response} = require('../../middleware/response');
-const express = require("express")
+    const express = require("express")
 const timelineController = express.Router()
 
 timelineController.get('/', (req, res) => {

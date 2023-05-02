@@ -16,7 +16,7 @@ userRoute.get("/", (req , res)=>{
 
 //      With Token
 userRoute.use('/auth',authRoute)
-userRoute.use('/blog',verifyUser,blogRoute)
+userRoute.use('/blog',blogRoute)
 userRoute.use('/todo',verifyUser,todoRoute)
 userRoute.use('/appointment',verifyUser,appointmentRoute)
 userRoute.use('/weight',verifyUser,weightRoute)

@@ -31,8 +31,5 @@ mongoose.connect(process.env.MONGODB_URL, async (err, result) => {
       app.listen(process.env.PORT || 2001, () => {
         console.log("--->> Server Started At : ", process.env.PORT || 2001);
       });
-    //   ngrok.connect(process.env.PORT , function (err, url) {
-    //     console.log(`Node.js local server is publicly-accessible at ${url}`);
-    // });
     }
   });

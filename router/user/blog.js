@@ -7,6 +7,7 @@ blogRoute.get('/', (req, res) => {
 })
 
 blogRoute.get("/findData", blogController.blog)
+blogRoute.get("/findDataById/:id", blogController.blogById)
 
 
 module.exports = blogRoute;
