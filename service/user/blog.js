@@ -30,5 +30,20 @@ module.exports = {
                 console.log('err ...',error);
             }
         })
+    },
+    blogByCategory : (category) =>{
+        return new Promise(async(res,rej)=>{
+            try {
+                
+                let blogData = await blogModel.find({category:category});
+                // console.log(blogData);
+                
+                res({ data : blogData});
+
+            } catch (error) {
+                rej({status : 404, message : error})
+                console.log('err ...',error);
+            }
+        })
     }
 }

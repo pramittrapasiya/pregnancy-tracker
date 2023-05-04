@@ -29,3 +29,17 @@ exports.blogById = async(req,res)=>{
         return response(err.message, {}, err.status, res);
     }
 }
+exports.blogByCategory = async(req,res)=>{
+    try {
+        let resp = await blogService.blogByCategory(req.params.category);
+        if (resp) {
+            return response("SUCCESS..!!", resp.data, 200, res);
+        } else {
+            return response("Something went wrong!!", {}, 500, res);
+        }
+
+    } catch (err) {
+        // console.log(error);
+        return response(err.message, {}, err.status, res);
+    }
+}
