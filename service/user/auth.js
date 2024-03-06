@@ -29,7 +29,7 @@ module.exports = {
                                 port: 587,
                                 auth: {
                                     user: 'pramittrapasiya.itcodeinfotech@gmail.com',
-                                    pass: 'fafjxwkrpeoyeysf'
+                                    pass: 'wgkfvhcetwigiktv'
                                 }
                             });
 
